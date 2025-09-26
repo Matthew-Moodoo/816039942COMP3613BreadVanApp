@@ -256,6 +256,16 @@ def active_routes_command():
     else:
         print('No active routes found')
 
+@route_cli.command("list-streets", help="List all streets")
+def list_streets_command():
+    from App.models.user import Street
+    streets = Street.query.all()
+    if streets:
+        for street in streets:
+            print(f'Street ID: {street.streetID}, Name: {street.streetName}, Location: {street.streetLocation}, Route: {street.routeID}')
+    else:
+        print('No streets found')
+
 app.cli.add_command(route_cli)
 
 '''
