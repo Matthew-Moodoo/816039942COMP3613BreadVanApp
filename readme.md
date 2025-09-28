@@ -1,5 +1,33 @@
 ![Tests](https://github.com/uwidcit/flaskmvc/actions/workflows/dev.yml/badge.svg)
+# Student ID: 816039942
 
+# About
+This application uses the Flask MVC template which can be found at this link: (https://github.com/uwidcit/flaskmvc)
+
+The application is my solution for Assignment 1 of COMP 3603 - Software Engineering II. My assigned project was the Bread Van App. Based on the instructions given, this application is a CLI-based application which supports two user types: Driver and Resident. The app allows for the creation of Drivers and Residents and allows for routes to be created and scheduled, stops to be created and Driver trips to be tracked.
+
+# Driver CLI Commands
+* flask driver create [username] [password] --route [route_name] --lat [latitude] --lng [longitude]  - Create a Driver profile. Username, password and route name accept String values while latitude and longitude are float values.
+* flask driver list - Lists all existing Driver profiles.
+* flask driver schedule [driver_id] [date] [time] - Creates a scheduled drive for a Driver on that Driver's route. Date format is YYYY-MM-DD.
+* flask driver view-stops [driver_id] - Lists all stops for a Driver and the status of each stop.
+* flask driver update-route [driver_id] [route_id] --status [status] - Allows Driver to change whether they are currently driving on their route or not. Status states are 'active' and 'inactive'.
+* flask driver update-location [driver_id] [lat] [lng] - Allows Driver to update their current position.
+
+# Resident CLI Commands
+* flask resident create [username] [password] [name] [address] [phone] - Creates a Resident profile. Phone is an integer parameter while the rest are String paramaters.
+* flask resident list - Lists all existing Resident profiles.
+* flask resident view-driver [resident_id] - Tracks the Driver assigned to a Resident's route.
+* flask resident request-stop [resident_id] [street_id] [time] - Allows a Resident to book a stop. Resident and street IDs are integer parameters while time is a time parameter. The stop is also assigned a stop ID (integer).
+* flask resident cancel-stop [resident_id] [stop_id] - Cancels existing stop for a Resident.
+* flask resident my-stops [resident_id] - Lists all stops requested by a Resident.
+
+# Route Management Commands
+* flask route add-street [route_id] [street_name] [street_location] - Adds streets to a route. Route ID is an integer while the street name and location are strings.
+* flask route active - List all active routes.
+* flask route list-streets - List all streets with their IDs, names, locations and associated route IDs.
+
+  
 # Flask MVC Template
 A template for flask applications structured in the Model View Controller pattern [Demo](https://dcit-flaskmvc.herokuapp.com/). [Postman Collection](https://documenter.getpostman.com/view/583570/2s83zcTnEJ)
 
