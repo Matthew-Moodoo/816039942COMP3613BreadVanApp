@@ -159,7 +159,7 @@ def create_resident_command(username, password, name, address, phone):
 def list_residents_command():
     residents = get_all_residents()
     for resident in residents:
-        print(f'ID: {resident.userID}, Name: {resident.userName}')
+        print(f'ID: {resident.userID}, Name: {resident.userName}, Address: {resident.residentAddress}, Phone: {resident.residentPhone}')
 
 @resident_cli.command("view-driver", help="View driver information")
 @click.argument("resident_id", type=int)
